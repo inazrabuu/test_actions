@@ -8,11 +8,12 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: connect to remote
-      uses: inazrabuu/test_actions@main
+    - name: Install SSH Key
+      uses: shimataro/ssh-key-action@v2
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
-        port: ${{ secrets.PORT }}
-        script: ls -l
+        known_hosts: ''
+    - name: Adding known hosts
+      run: ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
+    - name: Run command in remote server
+      run: ssh ${{ USERNAME }}@${{ HOST }} ls -l
