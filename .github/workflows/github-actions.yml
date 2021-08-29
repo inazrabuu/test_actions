@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: connect to remote
-      uses: inazrabuu/test_actions@master
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
