@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: connect to remote
-      uses: inazrabuu/test_actions@main
+      run: echo "connecting to remote server"
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
