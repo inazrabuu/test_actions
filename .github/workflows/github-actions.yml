@@ -1,0 +1,5 @@
+name: Github Actions Run Test
+on: 
+  pull_request:
+    branches:
+      - main
