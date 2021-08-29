@@ -1,19 +1,18 @@
 name: Github Actions Run Test
-on: 
+on:
   push:
     branches:
-      - main:
+      - main
 jobs:
-  build:
+  build: 
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: build on remote
-      uses: inazrabuu/test_actions@main
+    - name: connect to remote
+      uses: inazrabuu/test_actions@master
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
-        script: |
-          ls -l\n
+        script: ls -l
