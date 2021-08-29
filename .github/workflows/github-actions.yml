@@ -1,17 +1,17 @@
 name: Github Actions Run Test
 on: 
-  pull_request:
+  push:
     branches:
       - main:
-          jobs:
-            build:
-              name: Build
-              runs-on: ubuntu-latest
-              steps:
-              - name: build on remote
-                with:
-                  host: ${{ secrets.HOST }}
-                  username: ${{ secrets.USERNAME }}
-                  key: ${{ secrets.KEY }}
-                  port: ${{ secrets.PORT }}
-                  script: ls -l
+    jobs:
+      build:
+        name: Build
+        runs-on: ubuntu-latest
+        steps:
+        - name: build on remote
+          with:
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USERNAME }}
+            key: ${{ secrets.KEY }}
+            port: ${{ secrets.PORT }}
+            script: ls -l
